@@ -1,253 +1,249 @@
-const son = +prompt("Son kiriting");
+// Func20. decTime(H, M, S) funksiyasini hosil qiling. H - soat, M - minut, S - sekund. Funksiya berilgan vaqtdan 1 sekund oldingi vaqtni ko’rsatsin.
+// decTime(0, 6, 40) => 00:06:39
 
-// For1. a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha butun 
-// sonlarni (a va b ni ham) chiqaruvchi va chiqarilgan sonlar sonini chiqaruvchi 
-// programma tuzilsin. (a va b xam chiqarilsin).
-
-// let a = 5
-// let b = 9 
-
-// for (let i = a; i <= b; i++){
-//     console.log(i)
-// }
-
-
-// For2. a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha 
-// butun sonlarni (a va b dan tashqari) kamayish tartibida chiqaruvchi va chiqarilgan sonlar 
-// sonini chiqaruvchi progma tuzilsin.
-
-// let a = 5
-// let b = 9 
-
-// for (let i = b; i >= a; i--){
-//     console.log(i)
-// }
-
-// For3. Bir kg konfetning narxi berilgan (haqiqiy son). 1, 2, 10 kg konfetni narxini 
-// chiqaruvchi programma tuzilsin.
-
-// let narx = 55400
-// for (let i = 1; i <= 10; i++){
-//     console.log(`${i / 10}gr = ${(i / 10) * narx} so'm`);
-// }
-
-
-
-// For4. Bir kg konfetning narxi berilgan (haqiqiy son). 1.2, 1.4, ..., 2 kg konfetni 
-// narxini chiqaruvchi programma tuzilsin.
-
-// let narx = 24999
-// for (let i = 12; i <= 20; i++){
-//     console.log(`${i / 10}kg = ${(i / 10) * narx} so'm`);
-// }
-
-
-// For5. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar yig'indisini chiqaruvchi programma tuzilsin.
-
-// let a = 10
-// let b = 70
-// let yigindi = 0
-// for(let i = a; i<=b; i++){{
-//         yigindi +=i;
+// function timeToHMS(h, m, s){
+//     if (m ==59 && s == 59){
+//         return `${h + 1}:00:00`
+//     }else if(s==59){
+//         return `${h}:${m+1}:00`;
+//     }else(s==59)
+//     {
+//         return `${h}:${m}:${s + 1}`;
 //     }
+    
 // }
-// console.log("butun sonlar yigindisi:", yigindi);
+// console.log(timeToHMS(0,6,39));
+
+// Func1. a sonning ixtiyoriy n-darajasini hisoblovchi power(a, n) nomli funksiya hosil qiling. QY
+// power(3, 5) => 243
+// let n = 10
+// Func1
+// function power(a, n) {
+//     let res = a ** n;
+//     console.log(res);
+//     return res;
+// }
+// power(3, 5);
 
 
-// For6. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar ko'paytmasini chiqaruvchi programma tuzilsin.
+// Func2. 2 ta a va b sonning o'rta arifmetigi (a + b) / 2 va geometrigi (a + b) ^ (1 / 2) hisoblovchi mean(a, b) nomli funksiya hosil qiling. QYM
+// mean(12, 48) => 30, 24
 
-// let a = 4
-// let b = 11
-// let yigindi = 3
-// for(let i = a; i<=b; i++){{
-//         yigindi *=i;
+// function mean(a, b) {
+//     let arif = (a + b) / 2;
+//     let geom = Math.sqrt(a * b);
+//     console.log(`${arif}, ${geom}`);
+//     return `${arif}, ${geom}`;
+// }
+// mean(12, 48);
+
+// Func3. Haqiqiy sonning ishorasini aniqlovchi sign(n) nomli funksiya hosil qiling. Funksiya argumenti noldan kichik bo'lsa -1; noldan katta bo'lsa 1; nolga teng bo'lsa 0 qiymat qaytarsin. QY
+// sign(10) => 1
+
+// function sign(n) {
+//     let res = n > 0 ? 1 : (n < 0 ? -1 : 0);
+//     console.log(res);
+//     return res;
+// }
+// sign(10);
+
+// Func4. A*x^2 + B*x + C = 0 ko'rinishidagi tenglama kvadrat tenglama deyiladi. (A noldan farqli son). Kvadrat tenglamaning ildizlar sonini aniqlovchi numberOfRoots(A, B, C) nomli funksiya hosil qiling. D = B^2 - 4*A*C. Agar D > 0 bo’lsa 2 ta, D = 0 bo’lsa 1 ta, D < 0 bo’lsa 0 ta. QY
+// numberOfRoots (1, -6, 9) => 1
+
+// function numberOfRoots(A, B, C) {
+//     let D = B ** 2 - 4 * A * C;
+//     let res = D > 0 ? 2 : (D === 0 ? 1 : 0);
+//     console.log(res);
+//     return res;
+// }
+// numberOfRoots(1, -6, 9); 
+
+// Func5. Doiraning yuzini hisoblovchi areaCircle(R) nomli funksiya hosil qiling. Doiraning yuzi S = π*R^2 orqali hisoblanadi. QY
+
+// function areaCircle(R) {
+//     let res = Math.PI * R ** 2;
+//     console.log(res);
+//     return res;
+// }
+
+// Func6. A va B sonlari orasidagi sonlar yig'indisini hisoblovchi sumRange(A, B) nomli funksiya hosil qiling. Agar A > B bo'lsa, funksiya 0 qiymat qaytaradi. QY
+// sumRange(8, 10) => 27
+
+// function sumRange(A, B) {
+//     if (A > B) {
+//         console.log(0);
+//         return 0;
 //     }
+//     let sum = 0;
+//     for (let i = A; i <= B; i++) sum += i;
+//     console.log(sum);
+//     return sum;
 // }
-// console.log("butun sonlar kopaytmasi:", yigindi);
+// sumRange(8, 10); 
 
+// Func7. Arifmetik amallarni bajaruvchi calc(A, B, S) funksiyasini hosil qiling. A va B haqiqiy sonlar. S o'zgaruchisi orqali bajariladigan arifmetik amal aniqlanadi. “-” – ayirish, “*” – ko'paytirish, “/” - bo'lish, “+” - qo'shish va boshqa belgilar uchun 0 qaytarsin. QY
+// calc(10, 15, “*”) => 150
+// calc(7, 8, “+”) => 15
 
-// For7. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar kvadratlarining yig'indisini chiqaruvchi programma tuzilsin.
+// function calc(A, B, S) {
+//     let res = 0;
+//     if (S === '+') res = A + B;
+//     else if (S === '-') res = A - B;
+//     else if (S === '*') res = A * B;
+//     else if (S === '/') res = B !== 0 ? A / B : 0;
+//     else res = 0;
+//     console.log(res);
+//     return res;
+// }
+// calc(10, 15, '*'); 
+// calc(7, 8, '+');   
 
-// let a = 1
-// let b = 4
-// let yigindi = 2
-// for(let i = a; i<=b; i++){{
-//         yigindi **=i;
+// Func8. Butun sonning juft - toqligini aniqlovchi isEven(K) funksiyasini hosil qiling. Funksiya K juft son bo'lsa - true, aks xolda false qiymat qaytarsin. QY
+// isEven(10) => true
+
+// function isEven(K) {
+//     let res = K % 2 === 0;
+//     console.log(res);
+//     return res;
+// }
+// isEven(10);
+
+// Func9. Kiritilgan 3 ta a, b, c sonlarning eng kichigini, o’rtachasini va eng kattasini chiqaruvchi sortABC(a, b, c) nomli dastur tuzing. QYM
+// sortABC(10, 5, 8) => 5, 8, 10
+
+// function sortABC(a, b, c) {
+//     let arr = [a, b, c].sort((x, y) => x - y);
+//     let res = `${arr[0]}, ${arr[1]}, ${arr[2]}`;
+//     console.log(res);
+//     return res;
+// }
+// sortABC(10, 5, 8); // 5, 8, 10
+
+// Func10. isPowerN(K, N) mantiqiy funksiyasini hosil qiling. (K > 0). Agar K soni N soninig biror darajasi bo'lsa - true, aks xolda false qiymat qaytarilsin. QY
+
+// function isPowerN(K, N) {
+//     if (K < 1) {
+//         console.log(false);
+//         return false;
 //     }
+//     while (K % N === 0) K /= N;
+//     let res = K === 1;
+//     console.log(res);
+//     return res;
 // }
-// console.log("butun sonlar kvadrati:", yigindi);
+// isPowerN(27, 3);
+// isPowerN(20, 2); 
 
+// Func11. isPrime(N) mantiqiy funksiyasini hosil qiling. (N > 0). Agar N soni tub bo'lsa - true, aks holda false qiymat qaytarilsin. QY
+// isPrime(7)  => true
 
-// For8. n butun soni berilgan (n > 0). Quyidagi yig'indini hisoblovchi
-//programma tuzilsin. S=1+1/2+1/3+...+1/n
-
-// let s = 0
-// for (let i = 1; i <= son; i++) {
-//     s += 1 / i;
-// }
-
-// console.log("Natija:" +s);
-
-// For9. n butun soni berilgan (n > 0). Quyidagi ko'paytmani hisoblovchi
-//  programma tuzilsin. S=1.1*1.2* 1.3*... *n
-
-// let s = 1
-// for (let i = 1; i <= son; i++) {
-//     s *= 1 + 0.1 * i;
-// }
-// console.log("Natija: " +s)
-
-
-// For10. n butun soni berilgan (n > 0). Shu sonning kvadratini 
-// quyidagi formula asosida hisoblovchi programma tuzilsin.
-// n^2=1+3+5+... + (2*n-1)
-
-// let s = 0
-// for (let i = 1; i <= son; i++) {
-//     s += 2 * i -1;
-//     console.log(`i = ${i}, qo'shiluvchi: ${2*i - 1}, hozirgi yig'indi: ${s}`);
-// }
-// console.log("Natija: " +s)
-
-
-// For11. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// a ning n - darajasini aniqlovchi programma tuzilsin.
-// a^n=a*a*a...a;
-
-// let n = 5
-// let a = 2
-// let natija = 1
-// for (let i = 1; i<=n; i++){
-//    console.log(natija*=a) 
-// }
-
-
-// For12. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// Bir sikldan foydalanib a ning 1 dan n gacha bo'lgan 
-// barcha darajalarini chiqaruvchi programma tuzilsin.
-
-// let n = 17
-// let a = 2
-// let natija = 1
-// for (let i = 1; i<=n; i++){
-//     natija *=a;
-//     console.log(`${a} ning ${i}-darajasi: ${natija}`)
-// }
-
-// For13. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// Bir sikldan foydalanib quyidagi a ning 1 dan n gacha bo'lgan 
-// barcha darajalarini chiqaruvchi va yig'indini hisoblovchi programma tuzilsin. 
-// S = 1+a^1+a^2 + a^3 + ... a^n
-
-// let n = 18
-// let a = 2
-// let natija = 1
-// yigindi = 0
-// for (let i = 1; i<=n; i++){
-//     yigindi += i;
-//     natija *=a;
-//     console.log(`${a} ning ${i}-darajasi: ${natija} ${yigindi}-yigindisi:`)
-// }
-
-
-// For14. n butun soni berilgan (n > 0). Bir sikldan foydalangan holda 
-// quyidagi yig'indini hisoblovchi programma tuzilsin.
-// S = 1! + 2! + 3! + ... + n!
-
-// let n = 18
-// let yigindi = 0
-// let faktorial = 1
-// for (let i = 1; i<=n; i++){
-//     for (let j = 1; j <= i; j++) {
-//     faktorial *= j;
-//   }
-//   yigindi += faktorial;
-//   console.log(`${i}! = ${faktorial}, Yig‘indi hozircha: ${yigindi}`);
-// }
-
-
-// For15. N va K butun sonlari berilgan. Quyidagi yig'indini 
-// chiqaruvchi programma tuzilsin. 
-// S = 1^K + 2^K + ... + N^K
-
-// let n = 7
-// let k = 11
-// let yigindi = 0
-// for (let i = 1; i<=n; i++){
-// yigindi += i**k;
-// console.log(yigindi)
-// }
-
-
-// For16. N butun soni berilgan. Quyidagi yig'indini chiqaruvchi 
-// programma tuzilsin. 
-// S = 1^1 + 2^2 + … + N^N
-
-// let n = 7
-// let yigindi = 0
-//  for (let i = 1; i<=n; i++){
-// yigindi += i**i;
-// console.log(yigindi)
-// }
-
-
-// For17. A va B butun soni berilgan (A < B). A va B sonlari orasidagi barcha butun sonlarni chiqaruvchi 
-// programma tuzilsin. Bunda A soni 1 marta, 
-// (A + 1) soni 2 marta chiqariladi va xokazo.
-
-// let a = 4
-// let b = 56
-// let natija = 0
-//  for (let i = a; i<=b; i++){
-//     let count = i - a + 1;
-//     for (let j = 0; j <= count; j++) {
-//     console.log(i);
-//   }
-// }
-
-
-// For18. Sonning barcha bo’luvchilarini, ularning sonini va yig’indisini chiqaruvchi dastur tuzing.
-
-// let counter = 0;
-// let yigindi = 0;
-// let boluvchilar = [];
-// for(let i = 1; i<=son; i++){
-//     if (son % i == 0){
-//         yigindi +=i;
-//         counter++;
-//         boluvchilar.push(i)
-//     }        
-// }
-// console.log("boluvchilar soni:", counter);
-// console.log("boluvchilar soni yigindisi:", yigindi);
-// console.log("boluvchilar:", boluvchilar);
-
-
-// For19. n butun soni berilgan (n > 1). N sonini tub yoki tub emasligini aniqlovchi programma tuzilsin.    
-
-// for (let i = 1; i<= son; i++){
-//     if(son % i == 0){
-//         console.log(i);
+// function isPrime(N) {
+//     if (N <= 1) {
+//         console.log(false);
+//         return false;
 //     }
+//     for (let i = 2; i <= Math.sqrt(N); i++) {
+//         if (N % i === 0) {
+//             console.log(false);
+//             return false;
+//         }
+//     }
+//     console.log(true);
+//     return true;
 // }
+// isPrime(7);
+// isPrime(10);
 
+// Func12. isPrime funksiyasi orqali N gacha bo’lgan sonlar ichidan nechtasi tub ekanini aniqlovchi numberOfPrime(N) nomli dastur tuzilsin. QY
+// numberOfPrime(10) => 4
 
-// For20. Sonlarni quyidagi tartibda chiqaruvchi dastur tuzing. N = 5 bo’lganda,
-// 1
-// 1 2
-// 1 2 3
-// 1 2 3 4
-// 1 2 3 4 5
+// function numberOfPrime(N) {
+//     let count = 0;
+//     for (let i = 2; i <= N; i++) {
+//         if (isPrime(i)) count++;
+//     }
+//     console.log(count);
+//     return count;
+// }
+// numberOfPrime(10);
 
-let n = 9;
+// Func13. Butun qiymat qaytaruvchi digitNth(K, N) funksiyasini hosil qiling. (K > 0). Funksiya K sonining N-raqamini qaytarsin. Agar K soni raqamlari N dan kichik bo'lsa, -1 qaytarilsin. digitCount funksiyasidan foydalaning.QY
+// digitNth(105782, 5) => 8
+// digitNth(1057, 5) => -1
 
-for (let i = 1; i <= n; i++) {
-    let qator = "";
-    for (let j = 1; j <= i; j++) {
-        qator += j + " ";
-    }
-    console.log(qator);
-}
+// Func14. N sonining raqamlaridan teskari tartibda hosil bo’ladigan sonni qaytaruvchi inverseNumber(N) nomli funksiya hosil qiling. QY
+// inverseNumber(56814) => 41865
+
+// Func15. isPalindrom(N) mantiqiy funksiyasini hosil qiling. (N > 0). Agar N soni palindrom bo'lsa - true, aks holda false qiymat qaytarilsin. inverseNumber funksiyasidan foydalaning. Palindromik son - chapda ham, o’ngdan ham o’qilganda bir xil bo’ladigan son. Masalan, 123321, 78987. QY
+// isPalindrom(1678761) => true
+
+// Func16. 1 dan N ga sonlar ko’paytmasini qaytaruvchi factorial(N) nomli funksiya hosil qiling. Agar N manfiy bo’lib qolsa, 1 qaytarilsin. QY
+
+// Func17. 1 dan N bo’lgan sonlar ichida 3 bo’linadigan sonlar yig’indisini hisoblovchi getSum3(N) nomli dastur yozing.
+// getSum3(15) => 45
+
+// Func18. 1 dan N ga sonlar bo’lgan juft va toqlar sonlar yig’indisini qaytaruvchi sumOddEven(N) nomli funksiya hosil qiling. QYM
+// sumOddEven(10) => 30, 25
+
+// Func21. Mantiqiy qiymat qaytaruvchi isLeapYear(Y) funksiyasini hosil qiling. Funksiya berilgan Y - yil kabisa yili bo'lsa true, aks holda false qiymat qaytarsin.
+
+// function isLeapYear(Y) {
+//     let res = (Y % 4 === 0 && Y % 100 !== 0) || (Y % 400 === 0);
+//     console.log(res);
+//     return res;
+// }
+// isLeapYear(2020); // true
+// isLeapYear(1900); // false
+
+// Func22. isLeapYear(Y) funksiyasidan foydalangan xolda, butun qiymat qaytaruvchi monthDays(M, Y) funksiyasini hosil qiling. Funksiya berilgan Y - yilning M - oyi kunlar sonini qaytarsin.
+// monthDays(2, 2020) => 28
+// monthDays(3, 2021) => 31
+
+// function monthDays(M, Y) {
+//     let res = 31;
+//     if (M === 2) res = isLeapYear(Y) ? 29 : 28;
+//     else if ([4, 6, 9, 11].includes(M)) res = 30;
+//     console.log(res);
+//     return res;
+// }
+// monthDays(2, 2020); 
+// monthDays(3, 2021); 
+
+// Func23. monthDays funksiyasidan foydalangan xolda, prevDate (D, M, Y) funksiyasini hosil qiling. Funksiya berilgan sanadan oldingi sanani aniqlasin, D - kun, Y - yil, M - oyini qaytarsin. QY
+// prevDate (10, 3, 2022) => 09.03.2022
+
+// function prevDate(D, M, Y) {
+//     D--;
+//     if (D === 0) {
+//         M--;
+//         if (M === 0) {
+//             M = 12;
+//             Y--;
+//         }
+//         D = monthDays(M, Y);
+//     }
+//     let res = `${D.toString().padStart(2, '0')}.${M.toString().padStart(2, '0')}.${Y}`;
+//     console.log(res);
+//     return res;
+// }
+// prevDate(10, 3, 2022); 
+
+// Func24. monthDays funksiyasidan foydalangan xolda, nextDate(D, M, Y) funksiyasini hosil qiling. Funksiya berilgan sanadan keying sanani aniqlasin, D-kun, Y yil, M - oyini qaytarsin. QY
+// nextDate (10, 3, 2022) => 11.03.2022
+
+// Func25. N sonining bo’luvchilari soni va bo’luvchilari yi’gindisini chiqaruvchi getDividersNumberAndSum(N) nomli funksiya yozing. QYM
+// getDividersNumberAndSum(12) => 6, 28
+
+// function getDividersNumberAndSum(N) {
+//     let count = 0, sum = 0;
+//     for (let i = 1; i <= N; i++) {
+//         if (N % i === 0) {
+//             count++;
+//             sum += i;
+//         }
+//     }
+//     let res = `${count}, ${sum}`;
+//     console.log(res);
+//     return res;
+// }
+// getDividersNumberAndSum(12);
