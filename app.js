@@ -1,253 +1,288 @@
-const son = +prompt("Son kiriting");
-
-// For1. a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha butun 
-// sonlarni (a va b ni ham) chiqaruvchi va chiqarilgan sonlar sonini chiqaruvchi 
-// programma tuzilsin. (a va b xam chiqarilsin).
-
-// let a = 5
-// let b = 9 
-
-// for (let i = a; i <= b; i++){
-//     console.log(i)
-// }
+// 1.  Bahosi 5, 4, 3 bo’lgan o’quvchilarni ismlaridan iborat massiv qaytaruvchi getNamesByGrade(students, grade) funksiya tuzing. (map, filter)
 
 
-// For2. a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha 
-// butun sonlarni (a va b dan tashqari) kamayish tartibida chiqaruvchi va chiqarilgan sonlar 
-// sonini chiqaruvchi progma tuzilsin.
-
-// let a = 5
-// let b = 9 
-
-// for (let i = b; i >= a; i--){
-//     console.log(i)
-// }
-
-// For3. Bir kg konfetning narxi berilgan (haqiqiy son). 1, 2, 10 kg konfetni narxini 
-// chiqaruvchi programma tuzilsin.
-
-// let narx = 55400
-// for (let i = 1; i <= 10; i++){
-//     console.log(`${i / 10}gr = ${(i / 10) * narx} so'm`);
-// }
+// 5 baho - (85 - 100)
+// 4 baho - (70 - 85)
+// 3 baho – (60 - 70)
 
 
+// const students = [
+//   { name: "Quincy", percent: 96 },
+//   { name: "Jason", percent: 84 },
+//   { name: "Alexis", percent: 100 },
+//   { name: "Sam", percent: 65 },
+//   { name: "Katie", percent: 90 },
+//   { name: "Anna", percent: 75 },
+// ];
 
-// For4. Bir kg konfetning narxi berilgan (haqiqiy son). 1.2, 1.4, ..., 2 kg konfetni 
-// narxini chiqaruvchi programma tuzilsin.
+// Input: getNamesByGrade(students, 5)
+// Output: ['Quincy', 'Alexis', 'Katie']
 
-// let narx = 24999
-// for (let i = 12; i <= 20; i++){
-//     console.log(`${i / 10}kg = ${(i / 10) * narx} so'm`);
-// }
-
-
-// For5. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar yig'indisini chiqaruvchi programma tuzilsin.
-
-// let a = 10
-// let b = 70
-// let yigindi = 0
-// for(let i = a; i<=b; i++){{
-//         yigindi +=i;
+// function getNamesByGrade(students, grade) {
+//   const gradedStudents = students.map(student => {
+//     let studentGrade;
+//     if (student.percent >= 85) {
+//       studentGrade = 5;
+//     } else if (student.percent >= 70) {
+//       studentGrade = 4;
+//     } else if (student.percent >= 60) {
+//       studentGrade = 3;
 //     }
-// }
-// console.log("butun sonlar yigindisi:", yigindi);
+//     return { ...student, grade: studentGrade };
+//   });
 
+//   const filtered = gradedStudents.filter(student => student.grade === grade);
 
-// For6. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar ko'paytmasini chiqaruvchi programma tuzilsin.
+//   const names = filtered.map(student => student.name);
 
-// let a = 4
-// let b = 11
-// let yigindi = 3
-// for(let i = a; i<=b; i++){{
-//         yigindi *=i;
-//     }
-// }
-// console.log("butun sonlar kopaytmasi:", yigindi);
-
-
-// For7. a va b butun sonlari berilgan (a < b). a dan b gacha bo'lgan barcha butun 
-// sonlar kvadratlarining yig'indisini chiqaruvchi programma tuzilsin.
-
-// let a = 1
-// let b = 4
-// let yigindi = 2
-// for(let i = a; i<=b; i++){{
-//         yigindi **=i;
-//     }
-// }
-// console.log("butun sonlar kvadrati:", yigindi);
-
-
-// For8. n butun soni berilgan (n > 0). Quyidagi yig'indini hisoblovchi
-//programma tuzilsin. S=1+1/2+1/3+...+1/n
-
-// let s = 0
-// for (let i = 1; i <= son; i++) {
-//     s += 1 / i;
+//   return names;
 // }
 
-// console.log("Natija:" +s);
+// console.log(getNamesByGrade(students, 5)); 
+// console.log(getNamesByGrade(students, 4));
+// console.log(getNamesByGrade(students, 3)); 
 
-// For9. n butun soni berilgan (n > 0). Quyidagi ko'paytmani hisoblovchi
-//  programma tuzilsin. S=1.1*1.2* 1.3*... *n
+//  Massiv elementlari kvadratlaridan hosil bo’lgan massiv hosil qiling. (map)
+// Input: [1, 2, 3, 4, 5]
+// Output: [1, 4, 9, 16, 25]
 
-// let s = 1
-// for (let i = 1; i <= son; i++) {
-//     s *= 1 + 0.1 * i;
+// let num = [1, 2, 3, 4, 5]
+// num = num.map(n => n * n);
+// console.log(num)
+
+
+// Satrdagi so’zlarning bosh harflarini oling. (split, map, join)
+
+
+// Input: 'George Raymond Richard Martin'
+// Output: 'GRRM'
+
+// let s = 'George Raymond Richard Martin';
+// let words = s.split(' ');
+// let i = words.map(word => word[0]);
+// let result = i.join('');
+
+// console.log(result);
+
+//  Massivdagi eng yosh va eng qarilarni topib, ularni yoshlarini farqini toping. (sort).
+
+
+// const people = [
+// {name: 'John', age: 13},
+// {name: 'Mark', age: 56},
+// {name: 'Rachel', age: 45},
+// {name: 'Nate', age: 67},
+// {name: 'Jeniffer', age: 65}
+// ];
+// Output: 54
+
+// const sortedPeople = people.sort((a,b) => a.age - b.age)
+// console.log(sortedPeople [sortedPeople.length - 1].age -sortedPeople[0].age)
+
+
+// N ta elementdan iborat massiv berilgan.
+// Massiv elementlari orasidan juftlarini va toqlarini o'z ichiga oladigan massivlar hosil qilinsin. (filter)
+
+// let numbers = [1,2,3,4,5,6,7,8,9,10]
+
+// let odds = numbers.filter(n => n % 2 == 0)
+// let evens =numbers.filter(n => n % 2 != 0);
+// console.log(odds,evens)
+
+// 9. Products massivini id, name, price, rating va discount bo'yicha sortlash; (sort)
+let products = [
+  {
+    id: 6,
+    name: "Smarthpone",
+    price: 12000,
+    rating: 4.5,
+    discount: 20,
+  },
+  {
+    id: 2,
+    name: "Acer",
+    price: 10000,
+    rating: 4.3,
+    discount: 10,
+  },
+  {
+    id: 1,
+    name: "Mac book",
+    price: 17000,
+    rating: 4.7,
+    discount: 40,
+  },
+  {
+    id: 4,
+    name: "HP",
+    price: 21000,
+    rating: 4.1,
+    discount: 30,
+  },
+  {
+    id: 5,
+    name: "Dell",
+    price: 35000,
+    rating: 4.9,
+    discount: 30,
+  },
+];
+
+// let byId = [...products].sort((a, b) => a.id - b.id);
+// let byName = [...products].sort((a, b) => a.name.localeCompare(b.name));
+// let byPrice = [...products].sort((a, b) => a.price - b.price);
+// let byRating = [...products].sort((a, b) => b.rating - a.rating);
+// let byDiscount = [...products].sort((a, b) => b.discount - a.discount);
+
+// console.log("ID bo‘yicha:", byId);
+// console.log("Name bo‘yicha:", byName);
+// console.log("Narx bo‘yicha:", byPrice);
+// console.log("Reyting bo‘yicha:", byRating);
+// console.log("Chegirma bo‘yicha:", byDiscount);
+
+
+
+// 10. Rating bo'yicha eng kuchli product topilsin. (sort)
+const topProduct = [...products]
+  .sort((a, b) => b.rating - a.rating)[0];
+
+console.log("Eng kuchli product:", topProduct);
+
+
+// 11. Narxi eng past bo'lgan product topilsin. (sort)
+const pasProduct = [...products]
+  .sort((a, b) => a.rating - b.rating)[0];
+
+console.log("Eng pas product:", pasProduct);
+
+
+
+// Faqatgina products nomlaridangina iborat bo'lgan massiv qaytaring. (map)
+
+// let products = [
+//   {
+//     id: 6,
+//     name: "Smarthpone",
+//     price: 12000,
+//     rating: 4.5,
+//     discount: 20,
+//   },
+//   {
+//     id: 2,
+//     name: "Acer",
+//     price: 10000,
+//     rating: 4.3,
+//     discount: 10,
+//   },
+//   {
+//     id: 1,
+//     name: "Mac book",
+//     price: 17000,
+//     rating: 4.7,
+//     discount: 40,
+//   },
+//   {
+//     id: 4,
+//     name: "HP",
+//     price: 21000,
+//     rating: 4.1,
+//     discount: 30,
+//   },
+//   {
+//     id: 5,
+//     name: "Dell",
+//     price: 35000,
+//     rating: 4.9,
+//     discount: 30,
+//   },
+// ];
+
+// productsNames = products.map(product => product.name);
+// console.log(productsNames);
+
+// 14. Id si 5 bo'lgan elementni nomini qaytaruvchi dastur yozing. (find)
+
+const product = products.find(item => item.id === 5);
+
+console.log("ID-si 5 bo‘lgan product nomi:", product.name);
+
+
+// Id si 4 bo'lgan productni o'chiruvchi dastur yozing. (filter)
+// let newProducts = products.filter(product => product.id !== 4);
+// console.log(newProducts)
+
+
+// 17. Massiv truthy va falsy elementlardan tuzilgan. O’sha massivdagi truthy va falsy elementlarni alohida massivlarga ajratib object qilib qaytaruvchi getTruthyFalsy funksiya tuzing. (filter)
+
+// function getTruthyFalsy(arr) {
+//   let truthy = arr.filter(item => Boolean(item));
+//   let falsy = arr.filter(item => !item);
+
+//   return {
+//     truthy,
+//     falsy
+//   };
 // }
-// console.log("Natija: " +s)
+
+// let input = [false, 1, 10, "", null, "abdulaziz", 1.13, 0];
+// let result = getTruthyFalsy(input);
+// console.log(result);
+
+// 18. Satr berilgan. 
+// Satrdagi so'zlar uzunligidan iborat bo'lgan massiv qaytaring. (split, map)
+// Input: "Men Abdulaziz Programmerman"
+// Outpu: [3, 9, 13]
+
+// let Input = "Men Abdulaziz Programmerman" 
+// let words = Input.split(" ");
+// let lengths = words.map(word => word.length);
+// console.log(lengths);
+
+// 19. Satrni bo'sh joy bor yoki yo'qligini tekshiring. (split, some)
+// Input: "Men Abdulaziz Programmerman"
+// Output: true
+
+// let i = "Men Abdulaziz Programmerman"
+// let words = i.split(" ")
+// let some = words.some()
 
 
-// For10. n butun soni berilgan (n > 0). Shu sonning kvadratini 
-// quyidagi formula asosida hisoblovchi programma tuzilsin.
-// n^2=1+3+5+... + (2*n-1)
+// 23. grade propertyga protcent 90-100 o'rtasida bo'lsa 5, 80-90 o'rtasida bo'lsa 4, 70-80 o'rtasida bo'lsa 3 bahoni, qolgan holatlarda 2 bahoni o'zlashtiring.(map)
 
-// let s = 0
-// for (let i = 1; i <= son; i++) {
-//     s += 2 * i -1;
-//     console.log(`i = ${i}, qo'shiluvchi: ${2*i - 1}, hozirgi yig'indi: ${s}`);
-// }
-// console.log("Natija: " +s)
+const students = [
+  { name: "Quincy", percent: 96 },
+  { name: "Jason", percent: 84 },
+  { name: "Alexis", percent: 100 },
+  { name: "Sam", percent: 65 },
+  { name: "Katie", percent: 90 },
+  { name: "Anna", percent: 75 },
+];
 
+const gradedStudents = students.map(student => {
+  let grade = 2; // default
 
-// For11. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// a ning n - darajasini aniqlovchi programma tuzilsin.
-// a^n=a*a*a...a;
+  if (student.percent >= 90 && student.percent <= 100) {
+    grade = 5;
+  } else if (student.percent >= 80 && student.percent < 90) {
+    grade = 4;
+  } else if (student.percent >= 70 && student.percent < 80) {
+    grade = 3;
+  }
 
-// let n = 5
-// let a = 2
-// let natija = 1
-// for (let i = 1; i<=n; i++){
-//    console.log(natija*=a) 
-// }
+  return { ...student, grade }; 
+});
 
+console.log(gradedStudents);
 
-// For12. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// Bir sikldan foydalanib a ning 1 dan n gacha bo'lgan 
-// barcha darajalarini chiqaruvchi programma tuzilsin.
-
-// let n = 17
-// let a = 2
-// let natija = 1
-// for (let i = 1; i<=n; i++){
-//     natija *=a;
-//     console.log(`${a} ning ${i}-darajasi: ${natija}`)
-// }
-
-// For13. n butun soni va a haqiqiy soni berilgan (n > 0). 
-// Bir sikldan foydalanib quyidagi a ning 1 dan n gacha bo'lgan 
-// barcha darajalarini chiqaruvchi va yig'indini hisoblovchi programma tuzilsin. 
-// S = 1+a^1+a^2 + a^3 + ... a^n
-
-// let n = 18
-// let a = 2
-// let natija = 1
-// yigindi = 0
-// for (let i = 1; i<=n; i++){
-//     yigindi += i;
-//     natija *=a;
-//     console.log(`${a} ning ${i}-darajasi: ${natija} ${yigindi}-yigindisi:`)
-// }
+// 24. isPassed propertyga protcent 70 dan o'tsa true, aks holda false qiymat o'zlashtirilsin. (map)
 
 
-// For14. n butun soni berilgan (n > 0). Bir sikldan foydalangan holda 
-// quyidagi yig'indini hisoblovchi programma tuzilsin.
-// S = 1! + 2! + 3! + ... + n!
 
-// let n = 18
-// let yigindi = 0
-// let faktorial = 1
-// for (let i = 1; i<=n; i++){
-//     for (let j = 1; j <= i; j++) {
-//     faktorial *= j;
-//   }
-//   yigindi += faktorial;
-//   console.log(`${i}! = ${faktorial}, Yig‘indi hozircha: ${yigindi}`);
-// }
+const updatedStudents = students.map(student => {
+  return {
+    ...student,
+    isPassed: student.percent >= 70
+  };
+});
 
-
-// For15. N va K butun sonlari berilgan. Quyidagi yig'indini 
-// chiqaruvchi programma tuzilsin. 
-// S = 1^K + 2^K + ... + N^K
-
-// let n = 7
-// let k = 11
-// let yigindi = 0
-// for (let i = 1; i<=n; i++){
-// yigindi += i**k;
-// console.log(yigindi)
-// }
-
-
-// For16. N butun soni berilgan. Quyidagi yig'indini chiqaruvchi 
-// programma tuzilsin. 
-// S = 1^1 + 2^2 + … + N^N
-
-// let n = 7
-// let yigindi = 0
-//  for (let i = 1; i<=n; i++){
-// yigindi += i**i;
-// console.log(yigindi)
-// }
-
-
-// For17. A va B butun soni berilgan (A < B). A va B sonlari orasidagi barcha butun sonlarni chiqaruvchi 
-// programma tuzilsin. Bunda A soni 1 marta, 
-// (A + 1) soni 2 marta chiqariladi va xokazo.
-
-// let a = 4
-// let b = 56
-// let natija = 0
-//  for (let i = a; i<=b; i++){
-//     let count = i - a + 1;
-//     for (let j = 0; j <= count; j++) {
-//     console.log(i);
-//   }
-// }
-
-
-// For18. Sonning barcha bo’luvchilarini, ularning sonini va yig’indisini chiqaruvchi dastur tuzing.
-
-// let counter = 0;
-// let yigindi = 0;
-// let boluvchilar = [];
-// for(let i = 1; i<=son; i++){
-//     if (son % i == 0){
-//         yigindi +=i;
-//         counter++;
-//         boluvchilar.push(i)
-//     }        
-// }
-// console.log("boluvchilar soni:", counter);
-// console.log("boluvchilar soni yigindisi:", yigindi);
-// console.log("boluvchilar:", boluvchilar);
-
-
-// For19. n butun soni berilgan (n > 1). N sonini tub yoki tub emasligini aniqlovchi programma tuzilsin.    
-
-// for (let i = 1; i<= son; i++){
-//     if(son % i == 0){
-//         console.log(i);
-//     }
-// }
-
-
-// For20. Sonlarni quyidagi tartibda chiqaruvchi dastur tuzing. N = 5 bo’lganda,
-// 1
-// 1 2
-// 1 2 3
-// 1 2 3 4
-// 1 2 3 4 5
-
-let n = 9;
-
-for (let i = 1; i <= n; i++) {
-    let qator = "";
-    for (let j = 1; j <= i; j++) {
-        qator += j + " ";
-    }
-    console.log(qator);
-}
+console.log(updatedStudents);
